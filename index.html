@@ -1,0 +1,121 @@
+<!-- To-Do List implemented using jQuery -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<link rel="stylesheet"
+		href=
+"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+</script>
+	<script src=
+"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js">
+</script>
+	<script src="https://code.jquery.com/jquery-3.4.1.js"
+			integrity=
+			"sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+			crossorigin="anonymous"></script>
+
+	<style>
+		.container {
+			width: 50%;
+			height: auto;
+            margin-top: 5%;
+		}
+		
+		.foot {
+			/* position: fixed; */
+			position: absolute;
+			left: 10%;
+			
+            top:15%;
+        
+			width: 80%;
+			text-align: center;
+		}
+        body{
+           
+            /* background-image: url('https://img.freepik.com/premium-photo/pencil-checking-off-todo-list-3d-rendering-with-blue-background-copy-space_671359-10.jpg'); */
+            /* background-image: url('https://media.istockphoto.com/id/1339056301/photo/four-checkmarks-on-white-cubes-against-bright-green-background-with-copy-space.jpg?b=1&s=170667a&w=0&k=20&c=V7yxTOiaQ-LKtOMGOm2dP6MTFIyAMR86woU7o8y4p2w='); */
+            background-image: url('https://images.unsplash.com/photo-1586202690180-1967f682ef1a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=444&q=80');
+            background-repeat: no-repeat;
+            background-size: 100% 200% ;
+            background-attachment: fixed;
+        }
+        .footer{
+            position: absolute;
+            top:95%;
+            left:75%;
+            color:green;
+            background-color:#CEEDC7;
+        }
+       
+	</style>
+
+</head>
+
+<body>
+    
+	<center>
+
+		<div class="foot">
+			<div class="row">
+				<div class="col-sm-1">  </div>
+				<div class="col-sm-10">
+					<!-- Input for tasks -->
+					<div class="input-group">
+						<input type="text"
+							class="form-control"
+							placeholder="Add Task"
+							id="text">
+						<div class="input-group-btn">
+							<button class="btn btn-success">
+							<i class="glyphicon glyphicon-plus">
+							</i></button>
+						</div>
+					</div>
+					<br>
+					<br>
+				</div>
+			</div>
+		</div>
+
+		<br>
+		<h2 class="text text-success"><span style="background-color:#CEEDC7;font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;border: 2px solid black ;border-radius: 50px;padding:10px">TO DO LIST</span></h2>
+		<br>
+
+		<div class="container">
+		</div>
+
+	</center>
+    
+	<script>
+		$(document).ready(function() {
+			$('.btn-success').click(function() {
+				if ($('#text').val().length != 0) {
+					var x = $('.container').html();
+					var y =
+		`<div class="alert alert-success alert-dismissible fade in">
+	<a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+						` + $('#text').val() + `</div>`;
+					$('.container').html(y + x);
+					$('#text').val("");
+				} else alert("Enter some Text!");
+			});
+			// When Task is clicked
+			$(document).on('click', '.alert', function() {
+				if ($(this).css('text-decoration-line') == "none")
+					$(this).css('text-decoration-line', 'line-through');
+				else
+					$(this).css('text-decoration-line', 'none');
+			});
+		});
+	</script>
+    <footer>
+        <div class="footer">-CREATED BY HARSHAL, PRATHAM, MANSI & SALONI<div>
+    </footer>
+</body>
+
+</html>
